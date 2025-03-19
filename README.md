@@ -1,1 +1,1 @@
-# -omputational-maths-course
+# Computational-maths-course
