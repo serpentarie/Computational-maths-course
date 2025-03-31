@@ -80,3 +80,19 @@ def get_matrix_from_console() -> [[float]]:
             print(res)
         except ValueError:
             print("Невалидный формат ввода")
+
+
+def ask_to_continue():
+    while True:
+        print("\nПродолжать выполнение?")
+        print("(д)а / (н)ет")
+        print("(y)es / (n)o")
+
+        answer = input().lower().strip()
+
+        if answer in ["y", "yes", "д", "да"]:
+            return True
+        elif answer in ["n", "no", "н", "нет"]:
+            return False
+        else:
+            print("Пожалуйста, введите да или нет")

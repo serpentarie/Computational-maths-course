@@ -20,3 +20,5 @@ if __name__ == '__main__':
         res_x, res_errors, res_iter, norm = iteration_algo(matrix, eps)
         print(f"Норма матрицы: {norm}")
         print_results(res_x, res_errors, res_iter)
+        if not ask_to_continue():
+            break

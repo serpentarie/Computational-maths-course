@@ -25,7 +25,8 @@ def iteration_algo(mrx: [[float]], precision: float):
     max_row_sum = max(row_sums)
 
     if max_row_sum >= 1:
-        print("Метод простой итерации может не сойтись, так как норма матрицы >= 1\n")
+        print("Метод простой итерации не сходиться, так как норма матрицы >= 1\n")
+        return None, None, None, max_row_sum
 
     last_err = float('inf')
     while True:
