@@ -33,7 +33,7 @@ def iteration_algo(mrx: [[float]], precision: float):
         iter_count += 1
         x_1 = do_simple_iteration(c, d, x)
         errors = [abs(x_1[i] - x[i]) for i in range(len(x))]
-        if max(errors) < precision:
+        if max(errors) <= precision:
             return x_1, errors, iter_count, max_row_sum
         if max(errors) > last_err:
             print("Ответ не может быть найден")
