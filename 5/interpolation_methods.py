@@ -58,31 +58,52 @@ def gauss_central_even(x_data, y_data, x):
 
     if n % 2 == 0:
         center = m - 1
-        x0 = (x_data[center] + x_data[center + 1]) / 2
     else:
         center = m
-        x0 = x_data[center]
+
+    x0 = x_data[center]
 
     t = (x - x0) / h
+
     deltas = finite_diff_table(y_data)
 
     result = y_data[center]
 
     t_term = 1
     k = 1
+    p = 1
 
     for i in range(1, n):
-        if i >= len(deltas) or center - (i // 2) < 0 or center + ((i - 1) // 2) >= len(deltas[i]):
-            break
+        if x > x0:
+            idx = center - (i // 2)
+            val = deltas[i][idx]
+    #        print(val)
 
-        idx = center - (i // 2)
-        val = deltas[i][idx]
+            if i % 2 != 0:
+                t_term *= t + (k - 1)
+            else:
+                t_term *= t - (k - 1)
+    #        print(t_term)
 
-        t_term *= t + (k - 1) if i % 2 == 1 else t - (k - 1)
-        if i % 2 == 0:
-            k += 1
+            if i % 2 != 0:
+                k += 1
+        else:
+            idx = center - p
+            val = deltas[i][idx]
+            print(val)
+
+            if i % 2 != 0:
+                t_term *= t - (k - 1)
+            else:
+                p += 1
+                t_term *= t + (k - 1)
+            #        print(t_term)
+
+            if i % 2 != 0:
+                k += 1
 
         term = (t_term * val) / factorial(i)
+        print(term)
         result += term
 
     return result

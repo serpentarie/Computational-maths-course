@@ -96,7 +96,7 @@ class InterpolationGUI:
         func_control_frame.pack(fill='x', padx=5, pady=5)
 
         ttk.Label(func_control_frame, text="Функция:").pack(side='left')
-        self.function_choice = tk.StringVar(value="sin")
+        self.function_choice = tk.StringVar(value="sin(x)")
         func_combo = ttk.Combobox(func_control_frame, textvariable=self.function_choice,
                                   values=["sin(x)", "cos(x)", "ln(1 + x)"], state="readonly", width=15)
         func_combo.pack(side='left', padx=5)
