@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 class ODESolverApp:
     def __init__(self, master):
         self.master = master
+        master.title("Решение ОДУ")
         self.plot_data = {}
         self._build_ui()
 
